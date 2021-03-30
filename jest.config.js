@@ -1,3 +1,3 @@
 module.exports = {
-  projects: ['<rootDir>/apps/kia-client'],
+  projects: ['<rootDir>/apps/kia-client', '<rootDir>/apps/kia-admin'],
 };

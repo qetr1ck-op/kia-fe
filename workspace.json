@@ -94,6 +94,83 @@
           }
         }
       }
+    },
+    "kia-admin": {
+      "root": "apps/kia-admin",
+      "sourceRoot": "apps/kia-admin",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/next:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "root": "apps/kia-admin",
+            "outputPath": "dist/apps/kia-admin"
+          },
+          "configurations": {
+            "production": {}
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/next:server",
+          "options": {
+            "buildTarget": "kia-admin:build",
+            "dev": true
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "kia-admin:build:production",
+              "dev": false
+            }
+          }
+        },
+        "export": {
+          "executor": "@nrwl/next:export",
+          "options": {
+            "buildTarget": "kia-admin:build:production"
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/kia-admin"],
+          "options": {
+            "jestConfig": "apps/kia-admin/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/kia-admin/**/*.{ts,tsx,js,jsx}"]
+          }
+        }
+      }
+    },
+    "kia-admin-e2e": {
+      "root": "apps/kia-admin-e2e",
+      "sourceRoot": "apps/kia-admin-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/kia-admin-e2e/cypress.json",
+            "tsConfig": "apps/kia-admin-e2e/tsconfig.e2e.json",
+            "devServerTarget": "kia-admin:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "kia-admin:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/kia-admin-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
     }
   }
 }

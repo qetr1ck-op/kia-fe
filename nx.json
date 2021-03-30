@@ -29,6 +29,13 @@
     "kia-client-e2e": {
       "tags": [],
       "implicitDependencies": ["kia-client"]
+    },
+    "kia-admin": {
+      "tags": []
+    },
+    "kia-admin-e2e": {
+      "tags": [],
+      "implicitDependencies": ["kia-admin"]
     }
   }
 }
