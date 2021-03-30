@@ -8,7 +8,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Welcome to kia-admin!</title>
+        <title>Welcome to kia-admin @@!</title>
       </Head>
       <div className="app">
         <header className="flex">
